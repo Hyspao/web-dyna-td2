@@ -27,11 +27,10 @@ class InscriptionsController extends ControllerBase{
         $var->setEmail($_POST["adressemail"]);
 				if(DAO::insert($var)){
 		          echo "Votre inscription à fonctionnée, vous allez être redirigé";
-		            UResponse::header("location" ,"/inscriptionsController/index.html");
+		            UResponse::header("location" ,"/inscriptionsController/index");
 		        }
-		        else{
-		            echo "Votre inscription n'a pas fonctionnée, vous allez être redirigé à la page d'inscription";
-								UResponse::header("location" ,"/inscriptionsController/inscription.html");
-		        }
+				else{
+					 		echo "<div class='ui message'><p>Votre inscription n'a pas fonctionnée</p><a href='/inscriptionsController/inscription'>Retour à l'accueil</a></div>";
+						}
 	}
 }
